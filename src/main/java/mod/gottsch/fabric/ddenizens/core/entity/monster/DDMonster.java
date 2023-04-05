@@ -21,7 +21,6 @@ package mod.gottsch.fabric.ddenizens.core.entity.monster;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.Monster;
 import net.minecraft.world.World;
 
 /**
@@ -33,5 +32,14 @@ public abstract class DDMonster extends MobEntity {
     protected DDMonster(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
     }
+
+//    public static boolean checkDDSpawnRules(EntityType<? extends MobEntity> mob, World world, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+//
+//        IMobConfig mobConfig = Config.Mobs.MOBS.get(EntityType.getKey(mob));
+//        CommonSpawnConfig config = mobConfig.getSpawnConfig();
+//
+//        return pos.getY() > config.minHeight.get() && pos.getY() < config.maxHeight.get() && checkMobSpawnRules(mob, level, spawnType, pos, random);
+//    }
+
 
 }
