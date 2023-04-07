@@ -35,14 +35,7 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Almost identical to RevengeGoal except the setRevengeGroup() method functions is opposite
- * ie. instead of providing a list of included entities from the revenge group, the list provided is a list of entities
- * to exclude from the revenge group. ie all entities do revenge except ...
- * Remade entire class instead of extending because vanilla class hides some necessary properties.
- * @author Mark Gottschling on Apr 7, 2022
- *
- */
+@Deprecated
 public class HeadlessRevengeGoal extends TrackTargetGoal {
 	private static final TargetPredicate VALID_AVOIDABLES_PREDICATE = TargetPredicate.createAttackable().ignoreVisibility().ignoreDistanceScalingFactor();
 	private static final int BOX_VERTICAL_EXPANSION = 10;
