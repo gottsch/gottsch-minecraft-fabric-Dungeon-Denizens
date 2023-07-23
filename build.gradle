@@ -13,7 +13,7 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	maven {
-		url "${project.projectDir}/../../maven"
+		url "${project.projectDir}/../maven"
 	}
 	maven { url 'https://maven.wispforest.io' }
 	maven {
@@ -39,6 +39,8 @@ dependencies {
 	annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
 
 	modImplementation "curse.maven:modmenu-308702:4401051"
+	modImplementation "gottsch:GottschCore-1.19.2:2.2.0"
+	modImplementation ("curse.maven:jade-324717:4328558")
 }
 
 base {

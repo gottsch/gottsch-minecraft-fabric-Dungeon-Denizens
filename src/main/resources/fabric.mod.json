@@ -26,7 +26,6 @@
     ]
   },
   "mixins": [
-    "ddenizens.mixins.json"
   ],
 
   "depends": {

@@ -36,6 +36,7 @@ public class ConfigModel {
 
     @Nest
     public GhoulConfig ghoulConfig = new GhoulConfig();
+    public ShadowlordConfig shadowlordConfig = new ShadowlordConfig();
 
     public static class CommonSpawnConfig {
         @RangeConstraint(min =-64, max = 319)
@@ -64,6 +65,9 @@ public class ConfigModel {
     }
 
     public static class GhoulConfig extends MobConfig {
+        @RangeConstraint(min = 1, max = 1024)
+        public int healAmount = 4;
+
         public GhoulConfig() {
             spawnConfig = new CommonSpawnConfig(25, 1, 1, MIN_HEIGHT, MAX_HEIGHT);
         }
@@ -76,5 +80,21 @@ public class ConfigModel {
         public HeadlessConfig() {
             spawnConfig = new CommonSpawnConfig(40, 1, 2, MIN_HEIGHT, MAX_HEIGHT);
         }
+    }
+
+    public static class ShadowlordConfig extends MobConfig {
+        @RangeConstraint(min = 1, max = 1024)
+        public int minSummonSpawns = 1;
+
+        @RangeConstraint(min = 1, max = 1024)
+        public int maxSummonSpawns = 2;
+
+        @RangeConstraint(min = 1, max = Integer.MAX_VALUE)
+        public int summonCooldownTime = 2400;
+
+        public ShadowlordConfig() {
+            spawnConfig = new CommonSpawnConfig(15, 1, 2, MIN_HEIGHT, MAX_HEIGHT);
+        }
+
     }
 }

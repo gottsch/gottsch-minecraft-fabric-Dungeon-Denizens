@@ -21,6 +21,7 @@ package mod.gottsch.fabric.ddenizens;
 
 import mod.gottsch.fabric.ddenizens.core.config.MyConfig;
 import mod.gottsch.fabric.ddenizens.core.setup.Registration;
+import mod.gottsch.fabric.ddenizens.core.world.gen.ModEntitySpawn;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,5 +40,6 @@ public class DD implements ModInitializer {
     public void onInitialize() {
 
         Registration.register();
+        ModEntitySpawn.addEntitySpawn();
     }
 }

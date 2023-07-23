@@ -20,16 +20,16 @@
 package mod.gottsch.fabric.ddenizens.core.entity.monster;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.World;
 
 /**
  * Created by Mark Gottschling on 4/3/2023
  */
-public abstract class DDMonster extends MobEntity {
+public abstract class DDMonster extends HostileEntity {
     private static final int UNDERGROUND_HEIGHT = 60;
 
-    protected DDMonster(EntityType<? extends MobEntity> entityType, World world) {
+    protected DDMonster(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 

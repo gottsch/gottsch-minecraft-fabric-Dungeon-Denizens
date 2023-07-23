@@ -19,8 +19,46 @@
  */
 package mod.gottsch.fabric.ddenizens.core.setup;
 
+import mod.gottsch.fabric.ddenizens.DD;
+import mod.gottsch.fabric.ddenizens.core.client.model.GhoulModel;
+import mod.gottsch.fabric.ddenizens.core.client.model.HeadlessModel;
+import mod.gottsch.fabric.ddenizens.core.client.model.ShadowModel;
+import mod.gottsch.fabric.ddenizens.core.client.model.ShadowlordModel;
+import mod.gottsch.fabric.ddenizens.core.client.renderer.entity.GhoulRenderer;
+import mod.gottsch.fabric.ddenizens.core.client.renderer.entity.HeadlessRenderer;
+import mod.gottsch.fabric.ddenizens.core.client.renderer.entity.ShadowRenderer;
+import mod.gottsch.fabric.ddenizens.core.client.renderer.entity.ShadowlordRenderer;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.util.Identifier;
+
 /**
  * Created by Mark Gottschling on 4/3/2023
  */
-public class ClientSetup {
+@Environment(EnvType.CLIENT)
+public class ClientSetup implements ClientModInitializer {
+    public static final EntityModelLayer HEADLESS_LAYER = new EntityModelLayer(new Identifier(DD.MOD_ID, "headless"), "main");
+    public static final EntityModelLayer GHOUL_LAYER = new EntityModelLayer(new Identifier(DD.MOD_ID, "ghoul"), "main");
+    public static final EntityModelLayer SHADOW_LAYER = new EntityModelLayer(new Identifier(DD.MOD_ID, "shadow"), "main");
+    public static final EntityModelLayer SHADOWLORD_LAYER = new EntityModelLayer(new Identifier(DD.MOD_ID, "shadowlord"), "main");
+
+    @Override
+    public void onInitializeClient() {
+
+        // renderers
+        EntityRendererRegistry.register(Registration.HEADLESS, HeadlessRenderer::new);
+        EntityRendererRegistry.register(Registration.GHOUL, GhoulRenderer::new);
+        EntityRendererRegistry.register(Registration.SHADOW, ShadowRenderer::new);
+        EntityRendererRegistry.register(Registration.SHADOWLORD, ShadowlordRenderer::new);
+
+        // models
+        EntityModelLayerRegistry.registerModelLayer(HEADLESS_LAYER, HeadlessModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(GHOUL_LAYER, GhoulModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(SHADOW_LAYER, ShadowModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(SHADOWLORD_LAYER, ShadowlordModel::getTexturedModelData);
+    }
 }
